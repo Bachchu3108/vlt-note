@@ -12,7 +12,7 @@
       
     }
     #cover {
-  margin-top: 120px;
+  margin-top: 150px;
 }
 
 #openBtn {
@@ -65,21 +65,21 @@
 
 <body>
 
-  <!-- 💌 Cover -->
+  <!-- Cover screen -->
   <div id="cover">
     <h1>🌹 Note for Rosie 🌹</h1>
     <button id="openBtn">💌 Click to Open</button>
   </div>
 
-  <!-- ❤️ Hidden letter -->
+  <!-- Hidden letter -->
   <div class="card" id="letter" style="display:none;">
     <h1>🌹 Note for Rosie 🌹</h1>
     <img src="vlt-notephoto.jpeg" class="photo">
     <p id="message"></p>
   </div>
 
-  <script>
-    const text = `Hey, it's Valentine’s Day… so I wanted to leave a few words here, hoping they can make you smile when you read them
+<script>
+const text = `Hey, it's Valentine’s Day… so I wanted to leave a few words here, hoping they can make you smile when you read them
 
 Thank you for supporting me in my first year "về Việt Nam", cũng nhiều sóng gió này nọ mà chị vẫn luôn ở đó động viên em nè. Thank you for trusting me enough to share your stories, and for listening to mine. 💖
 
@@ -95,28 +95,29 @@ P/s: Nhớ uống thuốc đẩy đủ để sớm khoẻ lại nha, i love you!
 
 ❤️ Again happy Valentines day - Bách Chu ❤️
 `;
-    const openBtn = document.getElementById("openBtn");
-  const cover = document.getElementById("cover");
-  const letter = document.getElementById("letter");
-  const messageEl = document.getElementById("message");
 
-  let i = 0;
+const openBtn = document.getElementById("openBtn");
+const cover = document.getElementById("cover");
+const letter = document.getElementById("letter");
+const messageEl = document.getElementById("message");
 
-  openBtn.addEventListener("click", () => {
-    cover.style.display = "none";
-    letter.style.display = "block";
-    typeWriter();
-  });
+let i = 0;
 
-  function typeWriter() {
-    messageEl.style.opacity = 1;
+openBtn.addEventListener("click", () => {
+  cover.style.display = "none";
+  letter.style.display = "block";
+  typeWriter();
+});
 
-    if (i < text.length) {
-      messageEl.innerHTML += text.charAt(i);
-      i++;
-      setTimeout(typeWriter, 45);
-    }
+function typeWriter() {
+  messageEl.style.opacity = 1;
+
+  if (i < text.length) {
+    messageEl.innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typeWriter, 45);
   }
+}
 </script>
 
 </body>
