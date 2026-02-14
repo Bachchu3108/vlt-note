@@ -96,31 +96,28 @@ P/s: Nhớ uống thuốc đẩy đủ để sớm khoẻ lại nha, i love you!
 ❤️ Again happy Valentines day - Bách Chu ❤️
 `;
     const openBtn = document.getElementById("openBtn");
-    const cover = document.getElementById("cover");
-    const letter = document.getElementById("letter");
+  const cover = document.getElementById("cover");
+  const letter = document.getElementById("letter");
+  const messageEl = document.getElementById("message");
 
-    openBtn.addEventListener("click", () => {
-      cover.style.display = "none";
-      letter.style.display = "block";
+  let i = 0;
 
-      typeWriter(); // start typing after click
-    });
+  openBtn.addEventListener("click", () => {
+    cover.style.display = "none";
+    letter.style.display = "block";
+    typeWriter();
+  });
 
-    const text = `YOUR MESSAGE HERE`;
+  function typeWriter() {
+    messageEl.style.opacity = 1;
 
-    const messageEl = document.getElementById("message");
-    let i = 0;
-
-    function typeWriter() {
-      messageEl.style.opacity = 1;
-
-      if (i < text.length) {
-        messageEl.innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter, 45);
-      }
+    if (i < text.length) {
+      messageEl.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 45);
     }
-  </script>
+  }
+</script>
 
 </body>
 </html>
