@@ -9,7 +9,27 @@
       text-align: center;
       background: #ffe6eb;
       padding: 50px;
+      
     }
+    #cover {
+  margin-top: 120px;
+}
+
+#openBtn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 10px;
+  background: #e63946;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#openBtn:hover {
+  transform: scale(1.05);
+}
 
     .card {
       background: white;
@@ -44,9 +64,17 @@
 </head>
 
 <body>
-  <div class="card">
+
+  <!-- 💌 Cover -->
+  <div id="cover">
     <h1>🌹 Note for Rosie 🌹</h1>
-    <img src="vlt-note/photo.jpeg" class="photo">
+    <button id="openBtn">💌 Click to Open</button>
+  </div>
+
+  <!-- ❤️ Hidden letter -->
+  <div class="card" id="letter" style="display:none;">
+    <h1>🌹 Note for Rosie 🌹</h1>
+    <img src="vlt-notephoto.jpeg" class="photo">
     <p id="message"></p>
   </div>
 
@@ -67,6 +95,18 @@ P/s: Nhớ uống thuốc đẩy đủ để sớm khoẻ lại nha, i love you!
 
 ❤️ Again happy Valentines day - Bách Chu ❤️
 `;
+    const openBtn = document.getElementById("openBtn");
+    const cover = document.getElementById("cover");
+    const letter = document.getElementById("letter");
+
+    openBtn.addEventListener("click", () => {
+      cover.style.display = "none";
+      letter.style.display = "block";
+
+      typeWriter(); // start typing after click
+    });
+
+    const text = `YOUR MESSAGE HERE`;
 
     const messageEl = document.getElementById("message");
     let i = 0;
@@ -77,11 +117,11 @@ P/s: Nhớ uống thuốc đẩy đủ để sớm khoẻ lại nha, i love you!
       if (i < text.length) {
         messageEl.innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter, 45); // typing speed
+        setTimeout(typeWriter, 45);
       }
     }
-
-    typeWriter();
   </script>
+
 </body>
 </html>
+
