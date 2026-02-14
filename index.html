@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Happy Valentine's Day ❤️</title>
+  <title>🌹 Note for Rosie 🌹</title>
+
   <style>
     body {
       font-family: Arial;
@@ -9,26 +10,71 @@
       background: #ffe6eb;
       padding: 50px;
     }
+
     .card {
       background: white;
       padding: 30px;
       border-radius: 12px;
-      max-width: 600px;
+      max-width: 650px;
       margin: auto;
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    h1 { color: #e63946; }
+
+    h1 {
+      color: #e63946;
+    }
+
+    /* ✨ sweeter text look */
+    #message {
+      line-height: 1.8;
+      font-size: 18px;
+      color: #333;
+      text-align: left;
+      white-space: pre-line;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
   </style>
 </head>
+
 <body>
   <div class="card">
-    <h1>Happy Valentine's Day ❤️</h1>
-    <p>
-      My love,<br><br>
-      Thank you for being in my life.<br>
-      Every day with you is special.<br><br>
-      — Your Name
-    </p>
+    <h1>🌹 Note for Rosie 🌹</h1>
+    <p id="message"></p>
   </div>
+
+  <script>
+    const text = `Hey, it's Valentine’s Day… so I wanted to leave a few words here, hoping they can make you smile when you read them
+
+Thank you for supporting me in my first year "về Việt Nam", cũng nhiều sóng gió này nọ mà chị vẫn luôn ở đó động viên em nè. Thank you for trusting me enough to share your stories, and for listening to mine. 💖
+
+Also thank you for being the prettiest and the most special colleague I’ve ever had, you was like a daily motivation for me to wake up lol. Thank you for making me a better version nữa (lúc em muốn từ bỏ công việc thì cũng vì câu nói của chị mà em tiếp tục, lúc em bỏ bê sức khoẻ thì cũng chị là người chê em nhão 🫠, lúc em suy sụp thì chị cũng bảo là em mà như này nếu chị là mẹ em thì chắc buồn và thất vọng lắm)
+
+To sum up thì cảm ơn em đã xuất hiện trong cuộc đời anh. Đối với anh, em là người anh luôn muốn gặp hằng ngày, là người mà anh sẵn sàng mở lòng về mọi câu chuyện, làm gì cũng muốn có em, vừa là đồng nghiệp vừa là bạn thân vừa là therapist xong bây giờ còn là nhiều hơn thế nữa 🥵
+
+Có thể năm 2025 lấy đi của anh nhiều thứ và khiến anh mơ hồ về rất nhiều điều… nhưng nếu những điều đó đổi lại để anh gặp được em, thì với anh, nó vẫn là một năm đáng nhớ. Anh không biết tương lai sẽ thế nào, nhưng hiện tại, anh chắc chắn một điều: em khiến những ngày bình thường trở nên đặc biệt hơn rất rất nhiều 🥺. And I hope you feel the same!!!
+
+Đó nói chung là nhiều nhiều lắm mới Valentines thui để đó còn nhiều dịp khác nói thêm nha muốn nghe thêm thì phải ở cạnh anh lâu lâu nữa nhé hehe teaser đến đây thoii 😉
+
+P/s: Nhớ uống thuốc đẩy đủ để sớm khoẻ lại nha, i love you!!! 😘
+
+❤️ Again happy Valentines day - Bách Chu ❤️
+`;
+
+    const messageEl = document.getElementById("message");
+    let i = 0;
+
+    function typeWriter() {
+      messageEl.style.opacity = 1;
+
+      if (i < text.length) {
+        messageEl.innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 45); // typing speed
+      }
+    }
+
+    typeWriter();
+  </script>
 </body>
 </html>
