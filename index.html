@@ -93,6 +93,17 @@
       margin-top: 10px;
       font-weight: bold;
     }
+    .shake {
+      animation: shake 0.4s;
+    }
+    
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
     
   </style>
 </head>
@@ -115,7 +126,7 @@
   </div>
 
 <script>
-const correctPassword = "1701";
+const correctPassword = "1701"; //password here
 const text = `Hey, it's Valentine’s Day… so I wanted to leave a few words here, hoping they can make you smile when you read them.
 
 Thank you for supporting me in my first year "về Việt Nam", cũng nhiều sóng gió này nọ mà chị vẫn luôn ở đó động viên em nè. Thank you for trusting me enough to share your stories, and for listening to mine. 💖
@@ -145,11 +156,18 @@ const errorMsg = document.getElementById("errorMsg");
 
 submitPassword.addEventListener("click", () => {
   if (passwordInput.value === correctPassword) {
+    // 💖 Heart effect
+    document.body.style.background = "#fff0f3";
     cover.style.display = "none";
-    letter.style.display = "block";
+    letter.style.display = "block";😐
     typeWriter();
   } else {
-    errorMsg.textContent = "Wrong password!! Try again 😐";
+    errorMsg.textContent = "Wrong password 😢 Try again.";
+    passwordInput.classList.add("shake");
+  
+    setTimeout(() => {
+      passwordInput.classList.remove("shake");
+    }, 400);
   }
 });
 
