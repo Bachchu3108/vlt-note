@@ -1,3 +1,4 @@
+const correctPassword = "392099"; 
 <!DOCTYPE html>
 <html>
 <head>
@@ -116,9 +117,15 @@ const messageEl = document.getElementById("message");
 let i = 0;
 
 openBtn.addEventListener("click", () => {
-  cover.style.display = "none";
-  letter.style.display = "block";
-  typeWriter();
+  const userInput = prompt("Your bday + mine 💌");
+
+  if (userInput === correctPassword) {
+    cover.style.display = "none";
+    letter.style.display = "block";
+    typeWriter();
+  } else {
+    alert("Wrong password 😢 Try again.");
+  }
 });
 
 function typeWriter() {
