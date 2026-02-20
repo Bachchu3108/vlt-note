@@ -12,30 +12,30 @@
       
     }
     #cover {
-  min-height: 80vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-}
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
 
 
-#openBtn {
-  margin-top: 20px;
-  padding: 12px 25px;
-  font-size: 18px;
-  border: none;
-  border-radius: 10px;
-  background: #e63946;
-  color: white;
-  cursor: pointer;
-  transition: 0.3s;
-}
+    #openBtn {
+      margin-top: 20px;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 10px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
 
-#openBtn:hover {
-  transform: scale(1.05);
-}
+    #openBtn:hover {
+      transform: scale(1.05);
+    }
 
     .card {
       background: white;
@@ -46,10 +46,10 @@
       box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
     .cover-photo {
-  width: 220px;
-  border-radius: 15px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-}
+      width: 220px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
     .photo {
       width: 250px;
       border-radius: 15px;
@@ -71,6 +71,28 @@
       opacity: 0;
       transition: opacity 1s ease;
     }
+    #passwordInput {
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 15px;
+    }
+
+    #submitPassword {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    
+    #errorMsg {
+      color: #e63946;
+      margin-top: 10px;
+      font-weight: bold;
+    }
     
   </style>
 </head>
@@ -81,7 +103,9 @@
   <div id="cover">
     <h1>🌹 Note for Rosie 🌹</h1>
     <img src="new_photo.jpeg" class="cover-photo">
-    <button id="openBtn">💌 Click if you miss me</button>
+    <input type="password" id="passwordInput" placeholder="Enter secret password 💖">
+    <button id="submitPassword">Unlock 💌</button>
+    <p id="errorMsg"></p>
   </div>
 
   <!-- Hidden letter -->
@@ -115,18 +139,26 @@ const letter = document.getElementById("letter");
 const messageEl = document.getElementById("message");
 
 let i = 0;
+const passwordInput = document.getElementById("passwordInput");
+const submitPassword = document.getElementById("submitPassword");
+const errorMsg = document.getElementById("errorMsg");
 
-openBtn.addEventListener("click", () => {
-  const userInput = prompt("Enter our date to unlock 💌");
-
-  if (userInput === correctPassword) {
+submitPassword.addEventListener("click", () => {
+  if (passwordInput.value === correctPassword) {
     cover.style.display = "none";
     letter.style.display = "block";
     typeWriter();
   } else {
-    alert("Wrong password 😢 Try again.");
+    errorMsg.textContent = "Wrong password 😢 Try again.";
   }
 });
+
+passwordInput.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") {
+    submitPassword.click();
+  }
+});
+
 
 function typeWriter() {
   messageEl.style.opacity = 1;
